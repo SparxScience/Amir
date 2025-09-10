@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Amir Financial Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .payment-method {
+            transition: all 0.3s ease;
+        }
+        .payment-method:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .payment-method.active {
+            border-color: #3b82f6;
+            background-color: #eff6ff;
+        }
+        .crypto-bonus {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #10b981;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i data-feather="dollar-sign" class="text-blue-600 h-8 w-8"></i>
+                        <span class="ml-2 text-xl font-bold text-gray-900">Amir Financial</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="index.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="investments.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Investments</a>
+                    <a href="testimonials.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Testimonials</a>
+                    <a href="about.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">About</a>
+                    <a href="contact.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Contact</a>
+                    <a href="login.html" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">Login</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Payment Section -->
+    <div class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8">
+                <!-- Order Summary -->
+                <div class="mb-8 lg:mb-0" data-aos="fade-right">
+                    <h2 class="text-2xl font-bold text-gray-900">Order Summary</h2>
+                    
+                    <div class="mt-6 bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-medium text-gray-900" id="selected-plan">Silver Plan</h3>
+                        <p class="mt-2 text-gray-600">20% monthly return</p>
+                        
+                        <div class="mt-6 border-t border-gray-200 pt-6">
+                            <div class="flex justify-between">
+                                <p class="text-sm text-gray-600">Investment Amount</p>
+                                <p class="text-sm font-medium text-gray-900">$<span id="investment-amount">5000</span></p>
+                            </div>
+                            <div class="flex justify-between mt-4">
+                                <p class="text-sm text-gray-600">Expected Monthly Return</p>
+                                <p class="text-sm font-medium text-gray-900">$<span id="monthly-return">1000</span></p>
+                            </div>
+                            <div class="flex justify-between mt-4">
+                                <p class="text-sm text-gray-600">Term</p>
+                                <p class="text-sm font-medium text-gray-900">6 months</p>
+                            </div>
+                            <div class="flex justify-between mt-4">
+                                <p class="text-sm text-gray-600">Capital Return</p>
+                                <p class="text-sm font-medium text-gray-900">End of term</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 border-t border-gray-200 pt-6">
+                            <div class="flex justify-between">
+                                <p class="text-base font-medium text-gray-900">Total Due Today</p>
+                                <p class="text-base font-medium text-gray-900">$<span id="total-due">5000</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <label for="investment-amount-input" class="block text-sm font-medium text-gray-700">Investment Amount ($)</label>
+                        <input type="range" id="investment-amount-input" min="5000" max="19999" value="5000" step="100" class="mt-1 block w-full">
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>$5,000</span>
+                            <span>$19,999</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Payment Form -->
+                <div data-aos="fade-left">
+                    <h2 class="text-2xl font-bold text-gray-900">Payment Method</h2>
+                    
+                    <div class="mt-6 grid grid-cols-2 gap-4">
+                        <!-- Credit Card -->
+                        <div class="payment-method relative border border-gray-200 rounded-lg p-4 cursor-pointer active" id="credit-card">
+                            <div class="flex items-center">
+                                <i data-feather="credit-card" class="h-6 w-6 text-gray-700"></i>
+                                <span class="ml-2 text-sm font-medium">Credit Card</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Bank Transfer -->
+                        <div class="payment-method relative border border-gray-200 rounded-lg p-4 cursor-pointer" id="bank-transfer">
+                            <div class="flex items-center">
+                                <i data-feather="dollar-sign" class="h-6 w-6 text-gray-700"></i>
+                                <span class="ml-2 text-sm font-medium">Bank Transfer</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Bitcoin -->
+                        <div class="payment-method relative border border-gray-200 rounded-lg p-4 cursor-pointer" id="bitcoin">
+                            <div class="flex items-center">
+                                <i data-feather="bitcoin" class="h-6 w-6 text-gray-700"></i>
+                                <span class="ml-2 text-sm font-medium">Bitcoin</span>
+                            </div>
+                            <div class="crypto-bonus">5%</div>
+                        </div>
+                        
+                        <!-- Ethereum -->
+                        <div class="payment-method relative border border-gray-200 rounded-lg p-4 cursor-pointer" id="ethereum">
+                            <div class="flex items-center">
+                                <i data-feather="box" class="h-6 w-6 text-gray-700"></i>
+                                <span class="ml-2 text-sm font-medium">Ethereum</span>
+                            </div>
+                            <div class="crypto-bonus">5%</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Credit Card Form (shown by default) -->
+                    <div class="mt-6 bg-gray-50 rounded-lg p-6" id="credit-card-form">
+                        <div class="space-y-4">
+                            <div>
+                                <label for="card-number" class="block text-sm font-medium text-gray-700">Card Number</label>
+                                <input type="text" id="card-number" placeholder="1234 5678 9012 3456" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label for="expiry-date" class="block text-sm font-medium text-gray-700">Expiry Date</label>
+                                    <input type="text" id="expiry-date" placeholder="MM/YY" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <label for="cvv" class="block text-sm font-medium text-gray-700">CVV</label>
+                                    <input type="text" id="cvv" placeholder="123" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="card-name" class="block text-sm font-medium text-gray-700">Name on Card</label>
+                                <input type="text" id="card-name" placeholder="John Smith" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bank Transfer Form (hidden by default) -->
+                    <div class="mt-6 bg-gray-50 rounded-lg p-6 hidden" id="bank-transfer-form">
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-sm text-gray-500">Please transfer the funds to the following account:</p>
+                                <div class="mt-4 space-y-2">
+                                    <p class="text-sm"><span class="font-medium">Bank Name:</span> Swiss Private Bank</p>
+                                    <p class="text-sm"><span class="font-medium">Account Name:</span> Amir Financial Services Ltd</p>
+                                    <p class="text-sm"><span class="font-medium">Account Number:</span> 9876543210</p>
+                                    <p class="text-sm"><span class="font-medium">IBAN:</span> CH9300762011623852957</p>
+                                    <p class="text-sm"><span class="font-medium">SWIFT/BIC:</span> UBSWCHZH80A</p>
+                                </div>
+                                <p class="mt-4 text-sm text-gray-500">Please include your full name as reference.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bitcoin Form (hidden by default) -->
+                    <div class="mt-6 bg-gray-50 rounded-lg p-6 hidden" id="bitcoin-form">
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-sm text-gray-500">Send exactly <span class="font-medium" id="bitcoin-amount">0.125 BTC</span> to:</p>
+                                <div class="mt-4 bg-white p-4 rounded border border-gray-200">
+                                    <p class="text-sm font-mono break-all">3FZbgi29cpjq2GjdwV8eyHuJJnkLtktZc5</p>
+                                </div>
+                                <div class="mt-4">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=bitcoin:3FZbgi29cpjq2GjdwV8eyHuJJnkLtktZc5" alt="Bitcoin QR Code" class="mx-auto">
+                                </div>
+                                <p class="mt-4 text-xs text-gray-500">* Due to cryptocurrency volatility, the exact amount will be calculated at the time of payment.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Ethereum Form (hidden by default) -->
+                    <div class="mt-6 bg-gray-50 rounded-lg p-6 hidden" id="ethereum-form">
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-sm text-gray-500">Send exactly <span class="font-medium" id="ethereum-amount">2.5 ETH</span> to:</p>
+                                <div class="mt-4 bg-white p-4 rounded border border-gray-200">
+                                    <p class="text-sm font-mono break-all">0x71C7656EC7ab88b098defB751B7401B5f6d8976F</p>
+                                </div>
+                                <div class="mt-4">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=ethereum:0x71C7656EC7ab88b098defB751B7401B5f6d8976F" alt="Ethereum QR Code" class="mx-auto">
+                                </div>
+                                <p class="mt-4 text-xs text-gray-500">* Due to cryptocurrency volatility, the exact amount will be calculated at the time of payment.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="terms" name="terms" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="terms" class="font-medium text-gray-700">I agree to the <a href="#" class="text-blue-600 hover:text-blue-500">Terms & Conditions</a> and <a href="#" class="text-blue-600 hover:text-blue-500">Privacy Policy</a></label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <button type="button" id="pay-now" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Pay Now
+                        </button>
+                    </div>
+                    
+                    <div class="mt-4 flex items-center justify-center">
+                        <i data-feather="lock" class="h-4 w-4 text-gray-400"></i>
+                        <span class="ml-2 text-sm text-gray-500">Secure SSL Encryption</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+                <div class="space-y-8 xl:col-span-1">
+                    <div class="flex items-center">
+                        <i data-feather="dollar-sign" class="text-blue-400 h-8 w-8"></i>
+                        <span class="ml-2 text-xl font-bold text-white">Amir Financial</span>
+                    </div>
+                    <p class="text-gray-300 text-base">
+                        Helping investors achieve financial freedom since 2015.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-gray-300">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gray-300">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gray-300">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gray-300">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">
+                                Solutions
+                            </h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="investments.html" class="text-base text-gray-400 hover:text-white">
+                                        Investments
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Trading Signals
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Wealth Management
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-12 md:mt-0">
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">
+                                Support
+                            </h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="contact.html" class="text-base text-gray-400 hover:text-white">
+                                        Contact
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        FAQ
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Live Chat
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">
+                                Company
+                            </h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="about.html" class="text-base text-gray-400 hover:text-white">
+                                        About
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Careers
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Partners
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-12 md:mt-0">
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">
+                                Legal
+                            </h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Privacy
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Terms
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Compliance
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8">
+                <p class="text-base text-gray-400 text-center">
+                    &copy; 2023 Amir Financial Services. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init();
+        feather.replace();
+        
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const plan = urlParams.get('plan');
+        
+        // Set plan details based on URL parameter
+        if (plan) {
+            let minAmount, maxAmount, returnRate;
+            
+            switch(plan) {
+                case 'bronze':
+                    document.getElementById('selected-plan').textContent = 'Bronze Plan';
+                    document.getElementById('investment-amount').textContent = '500';
+                    document.getElementById('monthly-return').textContent = '75';
+                    document.getElementById('total-due').textContent = '500';
+                    document.getElementById('investment-amount-input').min = '500';
+                    document.getElementById('investment-amount-input').max = '4999';
+                    document.getElementById('investment-amount-input').value = '500';
+                    break;
+                case 'silver':
+                    document.getElementById('selected-plan').textContent = 'Silver Plan';
+                    document.getElementById('investment-amount').textContent = '5000';
+                    document.getElementById('monthly-return').textContent = '1000';
+                    document.getElementById('total-due').textContent = '5000';
+                    document.getElementById('investment-amount-input').min = '5000';
+                    document.getElementById('investment-amount-input').max = '19999';
+                    document.getElementById('investment-amount-input').value = '5000';
+                    break;
+                case 'gold':
+                    document.getElementById('selected-plan').textContent = 'Gold Plan';
+                    document.getElementById('investment-amount').textContent = '20000';
+                    document.getElementById('monthly-return').textContent = '5000';
+                    document.getElementById('total-due').textContent = '20000';
+                    document.getElementById('investment-amount-input').min = '20000';
+                    document.getElementById('investment-amount-input').max = '100000';
+                    document.getElementById('investment-amount-input').value = '20000';
+                    break;
+            }
+        }
+        
+        // Update amounts when slider changes
+        document.getElementById('investment-amount-input').addEventListener('input', function() {
+            const amount = this.value;
+            document.getElementById('investment-amount').textContent = amount;
+            document.getElementById('total-due').textContent = amount;
+            
+            // Calculate monthly return based on plan
+            let returnRate;
+            if (plan === 'bronze') returnRate = 0.15;
+            else if (plan === 'silver') returnRate = 0.20;
+            else if (plan === 'gold') returnRate = 0.25;
+            
+            const monthlyReturn = Math.round(amount * returnRate);
+            document.getElementById('monthly-return').textContent = monthlyReturn;
+        });
+        
+        // Payment method selection
+        const paymentMethods = document.querySelectorAll('.payment-method');
+        paymentMethods.forEach(method => {
+            method.addEventListener('click', function() {
+                // Remove active class from all methods
+                paymentMethods.forEach(m => m.classList.remove('active'));
+                // Add active class to clicked method
+                this.classList.add('active');
+                
+                // Hide all forms
+                document.getElementById('credit-card-form').classList.add('hidden');
+                document.getElementById('bank-transfer-form').classList.add('hidden');
+                document.getElementById('bitcoin-form').classList.add('hidden');
+                document.getElementById('ethereum-form').classList.add('hidden');
+                
+                // Show selected form
+                if (this.id === 'credit-card') {
+                    document.getElementById('credit-card-form').classList.remove('hidden');
+                } else if (this.id === 'bank-transfer') {
+                    document.getElementById('bank-transfer-form').classList.remove('hidden');
+                } else if (this.id === 'bitcoin') {
+                    document.getElementById('bitcoin-form').classList.remove('hidden');
+                    // Calculate BTC amount (placeholder calculation)
+                    const btcAmount = (document.getElementById('total-due').textContent / 40000).toFixed(6);
+                    document.getElementById('bitcoin-amount').textContent = btcAmount + ' BTC';
+                } else if (this.id === 'ethereum') {
+                    document.getElementById('ethereum-form').classList.remove('hidden');
+                    // Calculate ETH amount (placeholder calculation)
+                    const ethAmount = (document.getElementById('total-due').textContent / 2000).toFixed(4);
+                    document.getElementById('ethereum-amount').textContent = ethAmount + ' ETH';
+                }
+            });
+        });
+        
+        // Pay Now button
+        document.getElementById('pay-now').addEventListener('click', function() {
+            if (!document.getElementById('terms').checked) {
+                alert('Please agree to the Terms & Conditions and Privacy Policy');
+                return;
+            }
+            
+            // Show loading state
+            this.innerHTML = 'Processing... <i data-feather="loader" class="animate-spin ml-2"></i>';
+            feather.replace();
+            
+            // Simulate payment processing
+            setTimeout(() => {
+                // Redirect to thank you page
+                window.location.href = 'thank-you.html';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
