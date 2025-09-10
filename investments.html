@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Plans - Amir Financial Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .investment-card {
+            transition: all 0.3s ease;
+        }
+        .investment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .popular-plan {
+            border: 2px solid #3b82f6;
+            position: relative;
+            overflow: hidden;
+        }
+        .popular-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #3b82f6;
+            color: white;
+            padding: 0.25rem 1rem;
+            font-size: 0.75rem;
+            font-weight: bold;
+            transform: rotate(45deg) translate(1.5rem, -0.5rem);
+            width: 8rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i data-feather="dollar-sign" class="text-blue-600 h-8 w-8"></i>
+                        <span class="ml-2 text-xl font-bold text-gray-900">Amir Financial</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="index.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="investments.html" class="text-blue-600 border-b-2 border-blue-600 px-3 py-2 text-sm font-medium">Investments</a>
+                    <a href="testimonials.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Testimonials</a>
+                    <a href="about.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">About</a>
+                    <a href="contact.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Contact</a>
+                    <a href="login.html" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">Login</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-blue-700 text-white">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                    Investment Plans
+                </h1>
+                <p class="mt-6 max-w-3xl mx-auto text-xl">
+                    Choose from our exclusive investment opportunities with guaranteed returns.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Investment Plans -->
+    <div class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-12">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Investments</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Start Earning Today
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    All plans include 24/7 support and daily profit withdrawals.
+                </p>
+            </div>
+
+            <div class="mt-12 space-y-12 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3">
+                <!-- Bronze Plan -->
+                <div class="investment-card bg-white border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200" data-aos="fade-up">
+                    <div class="p-6">
+                        <h2 class="text-lg leading-6 font-medium text-gray-900">Bronze Plan</h2>
+                        <p class="mt-4 text-sm text-gray-500">
+                            Perfect for beginners with limited capital
+                        </p>
+                        <p class="mt-8">
+                            <span class="text-4xl font-extrabold text-gray-900">15%</span>
+                            <span class="text-base font-medium text-gray-500">/month</span>
+                        </p>
+                        <p class="mt-2 text-sm text-gray-500">
+                            Minimum: $500<br>
+                            Maximum: $4,999
+                        </p>
+                        <a href="payment.html?plan=bronze" class="mt-8 block w-full bg-gray-800 border border-gray-800 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-gray-900">
+                            Invest Now
+                        </a>
+                    </div>
+                    <div class="pt-6 pb-8 px-6">
+                        <h3 class="text-xs font-medium text-gray-900 tracking-wide uppercase">What's included</h3>
+                        <ul class="mt-6 space-y-4">
+                            <li class="flex space-x-3">
+                                <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                <span class="text-sm text-gray-500">15% monthly return</span>
+                            </li>
+                            <li class="flex space-x-3">
+                                <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                <span class="text-sm text-gray-500">Capital returned after 6 months</span>
+                            </li>
+                            <li class="flex space-x-3">
+                                <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                <span class="text-sm text-gray-500">Basic support</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Silver Plan (Popular) -->
+                <div class="investment-card popular-plan bg-white rounded-lg shadow-sm divide-y divide-gray-200" data-aos="fade-up" data-aos-delay="200">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="p-6">
+                        <h2 class="text-lg leading-6 font-medium text-gray-900">Silver Plan</h2>
+                        <p class="mt-4 text-sm text-gray-500">
+                            Our most popular plan for serious investors
+                        </p>
+                        <p class="mt-8">
+                            <span class="text-4xl font-extrabold text-gray-900">20%</span>
+                            <span class="text-base font-medium text-gray-500">/month</span>
+                        </p>
+                        <p class="mt-2 text-sm text-gray-500">
+                            Minimum: $5,000<br>
+                            Maximum: $19,999
+                        </p>
+                        <a href="payment.html?plan=silver" class="mt-8 block w-full bg-blue-600 border border-blue-600 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-blue-700">
+                            Invest Now
+                        </a>
+                    </div>
+                    <div class="pt-6 pb-8 px-6">
+                        <h3 class="text-xs font-medium text-gray-900 tracking-wide uppercase">What's included</h3>
+                        <ul class="mt-6 space-y-4">
+                            <li class="flex space-x-3">
+                                <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                <span class="text-sm text-gray-500">20% monthly return</span>
+                            </li>
+                            <li class="flex space-x-3">
+                                <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                <span class="text-sm text-gray-500">Capital returned after 6 months</span>
+                            </li>
+                            <li class="flex space-x-3">
+                                <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                <span class="text-sm text-gray-500">Priority support</span>
+                            </li>
+                            <li class="flex space-x-3">
+                                <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                <span class="text-sm text-gray-500">Weekly market analysis</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Gold Plan -->
+                <div class="investment-card bg-white border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200" data-aos="fade-up" data-aos-delay="400">
+                    <div class="p-6">
+                        <h2 class="text-lg leading-6 font-medium text-gray-900">Gold Plan</h2>
+                        <p class="mt-4 text-sm text-gray-500">
+                            For high-net-worth investors
+                        </p>
+                        <p class="mt-8">
+                            <span class="text-4xl font-extrabold text-gray-900">25%</span>
+                            <span class="text-base font-medium text-gray-500">/month</span>
+                        </p>
+                        <p class="mt-2 text-sm text-gray-500">
+                            Minimum: $20,000<br>
+                            Maximum: $100,000
+                        </p>
+                        <a href="payment.html?plan=gold" class="mt-8 block w-full bg-gray-800 border border-gray-800 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-gray-900">
+                            Invest Now
+                        </a>
+                    </div>
+                    <div class="pt-6 pb-8 px-6">
+                        <h3 class="text-xs font-medium text-gray-900 tracking-wide uppercase">What's included</h3>
+                        <ul class="mt-6 space-y-4">
+                            <li class="flex space-x-3">
+                                <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                <span class="text-sm text-gray-500">25% monthly return</span>
+                            </li>
+                            <li class="flex space-x-3">
+                                <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                <span class="text-sm text-gray-500">Capital returned after 3 months</span>
+                            </li>
+                            <li class="flex space-x-3">
+                                <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                <span class="text-sm text-gray-500">VIP support</span>
+                            </li>
+                            <li class="flex space-x-3">
+                                <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                <span class="text-sm text-gray-500">Daily market analysis</span>
+                            </li>
+                            <li class="flex space-x-3">
+                                <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                                <span class="text-sm text-gray-500">Personal account manager</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonial Section -->
+    <div class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-12">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Testimonials</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    What Our Investors Say
+                </p>
+            </div>
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+                <div class="bg-gray-50 p-6 rounded-lg" data-aos="fade-up">
+                    <div class="flex items-center mb-4">
+                        <img class="w-12 h-12 rounded-full" src="http://static.photos/people/200x200/1" alt="Sarah J.">
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-gray-900">Sarah J.</h3>
+                            <p class="text-gray-500">Gold Investor</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        "I was skeptical at first, but after seeing consistent 25% returns for 3 months straight, I'm a believer. Withdrew my profits every month without any issues."
+                    </p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <img class="w-12 h-12 rounded-full" src="http://static.photos/people/200x200/2" alt="Michael T.">
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-gray-900">Michael T.</h3>
+                            <p class="text-gray-500">Silver Investor</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        "The support team is amazing. They helped me through the entire process and answered all my questions. My $10k investment has already grown to $12k in just one month!"
+                    </p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-center mb-4">
+                        <img class="w-12 h-12 rounded-full" src="http://static.photos/people/200x200/3" alt="Robert K.">
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-gray-900">Robert K.</h3>
+                            <p class="text-gray-500">Bronze Investor</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        "Started small with $500 to test the waters. Got my first payout of $75 after one month. Now I'm planning to upgrade to the Silver plan with more capital."
+                    </p>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <a href="testimonials.html" class="text-blue-600 hover:text-blue-800 font-medium">View more testimonials →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="bg-gray-50 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-12">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">FAQ</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Frequently Asked Questions
+                </p>
+            </div>
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-6">
+                    <div class="bg-white shadow overflow-hidden rounded-lg" data-aos="fade-up">
+                        <div class="px-4 py-5 sm:p-6">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">How are the returns generated?</h3>
+                            <div class="mt-2 max-w-xl text-sm text-gray-500">
+                                <p>
+                                    Our team of expert traders uses proprietary algorithms to trade in forex, cryptocurrencies, and commodities markets. The exact strategies are confidential to protect our competitive advantage.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white shadow overflow-hidden rounded-lg" data-aos="fade-up" data-aos-delay="100">
+                        <div class="px-4 py-5 sm:p-6">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Is my investment really risk-free?</h3>
+                            <div class="mt-2 max-w-xl text-sm text-gray-500">
+                                <p>
+                                    Yes! All investments are fully insured against losses through our partnership with Lloyd's of London. In the unlikely event of a loss, your capital will be returned in full.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white shadow overflow-hidden rounded-lg" data-aos="fade-up" data-aos-delay="200">
+                        <div class="px-4 py-5 sm:p-6">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">How quickly can I withdraw my profits?</h3>
+                            <div class="mt-2 max-w-xl text-sm text-gray-500">
+                                <p>
+                                    Withdrawal requests are processed within 2 hours on business days. You can withdraw your profits as often as you like - daily, weekly, or monthly.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white shadow overflow-hidden rounded-lg" data-aos="fade-up" data-aos-delay="300">
+                        <div class="px-4 py-5 sm:p-6">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">What payment methods do you accept?</h3>
+                            <div class="mt-2 max-w-xl text-sm text-gray-500">
+                                <p>
+                                    We accept Bitcoin, Ethereum, bank wire transfers, and credit/debit cards (Visa, Mastercard, American Express). Cryptocurrency deposits receive a 5% bonus.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-blue-700">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+            <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+                <span class="block">Ready to start earning?</span>
+                <span class="block text-blue-200">Choose your investment plan today.</span>
+            </h2>
+            <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+                <div class="inline-flex rounded-md shadow">
+                    <a href="login.html" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50">
+                        Create Account
+                    </a>
+                </div>
+                <div class="ml-3 inline-flex rounded-md shadow">
+                    <a href="contact.html" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-800 bg-opacity-60 hover:bg-opacity-70">
+                        Contact Support
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+                <div class="space-y-8 xl:col-span-1">
+                    <div class="flex items-center">
+                        <i data-feather="dollar-sign" class="text-blue-400 h-8 w-8"></i>
+                        <span class="ml-2 text-xl font-bold text-white">Amir Financial</span>
+                    </div>
+                    <p class="text-gray-300 text-base">
+                        Helping investors achieve financial freedom since 2015.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-gray-300">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gray-300">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gray-300">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gray-300">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">
+                                Solutions
+                            </h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="investments.html" class="text-base text-gray-400 hover:text-white">
+                                        Investments
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Trading Signals
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Wealth Management
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-12 md:mt-0">
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">
+                                Support
+                            </h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="contact.html" class="text-base text-gray-400 hover:text-white">
+                                        Contact
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        FAQ
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Live Chat
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">
+                                Company
+                            </h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="about.html" class="text-base text-gray-400 hover:text-white">
+                                        About
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Careers
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Partners
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-12 md:mt-0">
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">
+                                Legal
+                            </h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Privacy
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Terms
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Compliance
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8">
+                <p class="text-base text-gray-400 text-center">
+                    &copy; 2023 Amir Financial Services. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init();
+        feather.replace();
+    </script>
+</body>
+</html>
